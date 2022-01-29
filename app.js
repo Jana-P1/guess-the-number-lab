@@ -40,3 +40,6 @@ const game = {
   }
   console.log(game.getGuess)
 
+  console.log(game)
+  
+
