@@ -7,15 +7,17 @@ const game = {
   smallestNum: 1,
   secretNum: null,
   play: function() {
+    // Generates a random number that becomes secretNum
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum;
-      // Log every player guess (correct/incorrect) into the prevGuesses arr using push method
+      
+      // Logs every player guess (correct/incorrect) into the prevGuesses arr using push method
       console.log(game.getGuess());
       while(this.getGuess !== this.secretNum){
         this.prevGuesses.push(this.getGuess());
-        console.log(render())
+        console.log(this.render())
       };
-      console.log(this.render())
+      console.log(this.render());
       return
   },
   prevGuesses: [],
@@ -25,22 +27,23 @@ const game = {
     const input = window.prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`);
     console.log(input); 
     const playerInput = parseInt(input)
-    console.log(playerInput)
-    while (playerInput !== isNaN || playerInput > this.smallestNum || playerInput < this.biggestNum) {
+    // console.log(playerInput)
+    while (playerInput !== isNaN(playerInput) || playerInput > this.smallestNum || playerInput < this.biggestNum) {
       // While loop runs as long as the player has entered anything
       // parseInt function converts player input from a string into an integer. If the input is within the given range the while loop break. If it is outside the range, it continues to run
-      console.log(input) 
+      console.log(input);
+      break 
   }
-  return this.getGuess
+  return playerInput;
   
   },
   render: function(){
     // render method compares the player's guess with the secretNum
     
-    let totalGuesses = this.prevGuesses.length
+    const totalGuesses = this.prevGuesses.length
     // totalGuesses finds the length of the preGuesses array
     
-    let listOfGuesses = this.prevGuesses.join() 
+    const listOfGuesses = this.prevGuesses.join() 
     // listOfGuesses changes the list of prevGuesses into a string
     
     if(this.getGuess === this.secretNum) {
@@ -59,7 +62,12 @@ const game = {
     }, 
     } 
 
-    // console.log(game.play())
+  // console.log(game.play())
+
+  // console.log(game.getGuess())
+
+  
+
     
 
 
