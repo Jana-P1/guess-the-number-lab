@@ -30,7 +30,7 @@ const game = {
       do{
         guess = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`));
         // prompt(`Try Again! Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`); 
-    } while (isNaN(guess) || guess > this.smallestNum || guess < this.biggestNum) 
+    } while (isNaN(guess) || guess < this.smallestNum || guess > this.biggestNum) 
     alert(guess)
         // While loop runs as long as the player has entered anything
         // parseInt function converts player input from a string into an integer. If the input is within the given range the while loop break. If it is outside the range, it continues to run
@@ -48,17 +48,14 @@ const game = {
         // If the player guesses correctly, the player is alerted that they won and displays the total number of attempts => totalGuesses variable
       alert(`Congrats! You guessed the number in ${totalGuesses}`)
         //If the player's guess is too low/too high, the player is alerted and all previous guesses are displayed 
-    } else{
-      alert("Wrong")
+    } else if (this.prevGuesses[this.prevGuesses.length - 1] > this.secretNum) {
+      alert(`Your guess is too high. Previous guesses: ${listOfGuesses}`)
+    } else {
+      alert(`Your guess is too low. Previous guesses: ${listOfGuesses}`)
     }
-    // else if(this.prevGuesses[this.prevGuesses.length - 1] > this.secretNum) {
-    //   alert(`Your guess is too high. Previous guesses: ${listOfGuesses}`)
-    // } else if(this.prevGuesses[this.prevGuesses.length - 1] < this.secretNum) {
-    //   alert(`Your guess is too low. Previous guesses: ${listOfGuesses}`)
-    // }
-      
+    }
     }, 
-    } 
+  
 
   // game.play()
 
