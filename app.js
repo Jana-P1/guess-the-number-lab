@@ -12,10 +12,11 @@ const game = {
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum;
       
       // Logs every player guess (correct/incorrect) into the prevGuesses arr using push method
-      console.log(game.getGuess());
+      console.log(game.this.getGuess());
       while(this.getGuess !== this.secretNum){
         this.prevGuesses.push(this.getGuess());
         console.log(this.render())
+        break
       };
       console.log(this.render());
       return
@@ -24,17 +25,16 @@ const game = {
   getGuess: function() {
     // Creates a prompt instructing the player to guess a number within the given range
     // The player input is assigned to a variable that will be used later in the game
-    const input = window.prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`);
-    console.log(input); 
-    const playerInput = parseInt(input)
+    const playerInput = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`));
+    
+    
     // console.log(playerInput)
     while (playerInput !== isNaN(playerInput) || playerInput > this.smallestNum || playerInput < this.biggestNum) {
       // While loop runs as long as the player has entered anything
       // parseInt function converts player input from a string into an integer. If the input is within the given range the while loop break. If it is outside the range, it continues to run
-      console.log(input);
-      break 
+      console.log(prompt(`Try Again! Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`)); 
   }
-  return playerInput;
+  return this.playerInput;
   
   },
   render: function(){
@@ -62,7 +62,7 @@ const game = {
     }, 
     } 
 
-  // console.log(game.play())
+ console.log(game.play())
 
   // console.log(game.getGuess())
 
