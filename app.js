@@ -31,6 +31,7 @@ const game = {
         guess = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`));
         // prompt(`Try Again! Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`); 
     } while (isNaN(guess) || guess > this.smallestNum || guess < this.biggestNum) 
+    alert(guess)
         // While loop runs as long as the player has entered anything
         // parseInt function converts player input from a string into an integer. If the input is within the given range the while loop break. If it is outside the range, it continues to run
       
